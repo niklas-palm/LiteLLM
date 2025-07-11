@@ -124,6 +124,5 @@ make deploy-aws
 
 Environment variables can be set via `.env` file or exported directly.
 
-## Security notice
-
-It's recommended to use a proper secret as the shared secret between cloudfront and the ALB. This project uses a concatenation of repository variables and the AWS account ID. To ensure it's only your cloudfront distribution that can send traffic to the ALB you should use a random secret.
+> [!WARNING]  
+> It's recommended to use a proper secret as the shared secret between cloudfront and the ALB. This project uses a concatenation of repository variables and the AWS account ID. To ensure it's only your cloudfront distribution that can send traffic to the ALB you should use a random secret.
