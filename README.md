@@ -7,8 +7,9 @@ This sample is accompanied by a blog post with more context and details
 ## Prerequisites
 
 - Docker and Docker Compose
-- AWS CLI configured with permissions for ECS, ECR, CloudFormation, CloudFront, ALB
-- SAM CLI installed (`pip install aws-sam-cli`)
+- AWS CLI installed ([instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html))
+- SAM CLI installed ([instructions](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html))
+- Active temporary AWS credentials in your environment. For local deployment only Bedrock access is necessary. For AWS deployment you need additional permissions.
 - `.env` file with required API keys (see `.env.example`)
 
 ## Quick Start
@@ -79,7 +80,7 @@ make clean
 
 ## Architecture
 
-![Architecture Diagram](architecture.png)
+![Architecture Diagram](assets/architecture.png)
 
 **Local**: Single LiteLLM container via Docker Compose
 
@@ -99,6 +100,21 @@ The LiteLLM proxy is configured with Claude 4 Sonnet and automatic fallbacks:
 - `sonnet-4-anthropic`: Claude 4 Sonnet via Anthropic API (fallback)
 
 Fallback behavior: If `sonnet-4` fails, requests automatically retry with `sonnet-4-anthropic`.
+
+### Customizing LiteLLM Configuration
+
+To modify the LiteLLM configuration (add models, change fallbacks, etc.), edit `litellm-image/config.yaml`:
+
+```yaml
+model_list:
+  - model_name: "sonnet-4"
+    litellm_params:
+      model: "bedrock/us.anthropic.claude-sonnet-4-20250514-v1:0"
+      aws_region_name: us-west-2
+  # Add your own models here
+```
+
+After making changes, redeploy with `make deploy-local` or `make deploy-aws`.
 
 ## Available Commands
 

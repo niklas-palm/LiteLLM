@@ -3,7 +3,7 @@ services:
   litellm:
     platform: linux/arm64
     build:
-      context: .
+      context: litellm-image
       dockerfile: Dockerfile
     ports:
       - "4000:4000"
