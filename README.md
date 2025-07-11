@@ -1,6 +1,6 @@
 # Claude Code with LiteLLM Gateway
 
-A minimal LiteLLM deployment with CloudFront, ALB, and ECS for quota management and secure HTTPS access that you can configure Claude Code to use.
+A minimal LiteLLM deployment with CloudFront, ALB, and ECS for Bedrock quota management with autmatic fallback to other LLM providers that you can configure Claude Code to use.
 
 This sample is accompanied by a blog post with more context and details
 
