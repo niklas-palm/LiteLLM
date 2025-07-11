@@ -2,7 +2,7 @@
 
 A minimal LiteLLM deployment with CloudFront, ALB, and ECS for Bedrock quota management with autmatic fallback to other LLM providers that you can configure Claude Code to use.
 
-This sample is accompanied by a blog post with more context and details
+This sample is accompanied by a [blog post](https://medium.com/@niklas-palm/claude-code-with-litellm-24b3fb115911) with more context and details
 
 ## Prerequisites
 
