@@ -365,6 +365,7 @@ Resources:
             CustomOriginConfig:
               HTTPPort: 80
               OriginProtocolPolicy: http-only
+              OriginReadTimeout: 60
             OriginCustomHeaders:
               - HeaderName: X-Origin-Verify
                 HeaderValue: !Sub "${NamePrefix}-cloudfront-origin-${AWS::AccountId}"
